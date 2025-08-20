@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+}
+
+.left {
+    width: 80vw;
+}
+
+h1 {
+    text-align: center;
+}
