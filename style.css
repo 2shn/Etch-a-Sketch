@@ -2,16 +2,152 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Outfit', sans-serif;
 }
 
 body {
     display: flex;
+    background-color:rgb(255, 243, 230);
 }
 
 .left {
-    width: 80vw;
+    width: 70vw;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+input {
+    border-radius: 8px;
+    padding: 5px;
+    box-sizing: content-box;
+    min-width: 250px;
+    border: 2px solid rgb(217, 170, 162);
+    color: rgb(118, 79, 79);
+}
+
+.create {
+    padding: 5px;
+    border-radius: 10px;
+    flex-shrink: 1;
+    max-width: fit-content;
+    border: 2px solid rgb(210, 129, 115);
+    background-color:rgb(234, 150, 135);
+    color: white;
+    font-weight: 800;
+}
+
+#credit {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color:rgb(214, 121, 105);
+    padding: 5px;
+}
+
+#credit a {
+    color: white;
+    text-decoration: none;
 }
 
 h1 {
     text-align: center;
+    color: rgb(190, 102, 108);
+}
+
+/* right side */
+
+.right {
+    width: 30vw;
+    height: 94.5vh;
+    padding: 15px;
+    background-color: rgb(236, 170, 149);
+}
+
+h2 {
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 20px 0;
+}
+
+ul > li {
+    border: 2px solid rgb(214, 121, 105);
+    background-color: rgb(229, 140, 113);
+    border-radius: 8px;
+    padding: 5px;
+    text-decoration: none;
+    text-align: center;
+    flex: 1;
+    max-width: 190px;
+    align-content: center;
+}
+
+li a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+/* For JS 🌷*/
+
+.container {
+    flex: 1;
+    max-width: 65vw;
+    align-content: center;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.square {
+    width: 50px;
+    max-width: 200px;
+    aspect-ratio: 1;
+    flex: 1 1 50px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgb(182, 125, 125);
+}
+
+/* Pseudo class */
+
+input:focus {
+    outline-color:rgb(118, 79, 79);
+}
+
+button:hover {
+    background-color: rgb(210, 129, 115);
+    border-color: rgb(234, 150, 135);
+}
+
+.modes li:hover {
+    background-color: rgb(210, 129, 115);
+    border-color: rgb(234, 150, 135);
+}
+
+.modes li:active {
+    font-size: 15px;
+}
+
+button:active {
+    font-size: small;
 }

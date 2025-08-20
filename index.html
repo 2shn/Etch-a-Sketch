@@ -15,15 +15,22 @@
     <div class="left">
         
         <h1>Etch-a-Sketch</h1>
-        <input type="text" placeholder="Write the number of squares for each side">
-        <button class="create">Create</button>
+        <div class="input">
+            <input type="text" placeholder="Write the number of squares for each side">
+            <button class="create">Create</button>
+        </div>
         
         <div class="container">
-            <!-- square divs here -->
-             <div class="square"></div>
+                <!-- square divs here -->
+            <div class="row">
+                <div class="square"></div>
+                <div class="square"></div>
+            </div>
+            <div class="row">
+                <div class="square"></div>
+                <div class="square"></div>
+            </div>
         </div>
-
-            <p id="credit">Made by 2shn on Github</p>
     </div>
 
     <div class="right">
@@ -36,5 +43,7 @@
             <li class="modes" id="clear-all"><a href="">Clear all</a></li>
         </ul>
     </div>
+
+    <p id="credit"><a href="https://github.com/2shn" target="_blank" rel="noreferrer noopener">Made by 2shn on Github</a></p>
 </body>
 </html>
