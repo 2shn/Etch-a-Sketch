@@ -71,6 +71,10 @@ h1 {
     height: 94.5vh;
     padding: 15px;
     background-color: rgb(236, 170, 149);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
 }
 
 h2 {
@@ -95,7 +99,6 @@ ul > li {
     text-decoration: none;
     text-align: center;
     flex: 1;
-    max-width: 190px;
     align-content: center;
 }
 
