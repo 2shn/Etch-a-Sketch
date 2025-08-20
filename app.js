@@ -13,13 +13,18 @@ const container = document.querySelector('div.container');
 //4a. Add the new event listener for the new mode
 
 // GLOBAL VARIABLES🌷
+
 let numSquares = 0;
-const opacity = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1];
+let opacity = 0.9;
 
 let randomColor = () => {
     const colorCode = Math.floor(Math.random() * 256);
     return colorCode;
 }
+
+let currentMode = 'random-colors'; //default
+let rows;
+let customColor;
 
 // GLOBAL FUNCTIONS 🌷
 
@@ -27,8 +32,9 @@ function addAnnouncement(parentElement, message) {
     const announcement = document.createElement('p')
     announcement.style.color = 'red';
     announcement.style.marginBottom = '20px';
+    announcement.style.zIndex = '1';
     announcement.textContent = message;
-    parentElement.appendChild(announcement);
+    parentElement.insertBefore(announcement, container);
     setTimeout(() => parentElement.removeChild(announcement), 1000)
 }
 
@@ -67,36 +73,55 @@ function createGrid() {
             const square = document.createElement('div');
             square.classList.add('square');
             row.appendChild(square);
+            
+            square.addEventListener('mouseover', () => {
+                square.style.backgroundColor = changeDivColor();
+                if (currentMode === 'shade') {
+                    square.style.backgroundColor = changeOpacity();
+                }
+            })
         }
         container.appendChild(row);
     }
-    
-    let squares = document.querySelectorAll('div.square');
-    switchRandomColors(squares)
 }
 
-function switchRandomColors(squares) {
-    for (square of squares) {
-        square.addEventListener('mouseenter', function(e) {
-            e.target.setAttribute('data-hasEventListener', 'true')
-            e.target.style.backgroundColor = `rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`
-        })
+function changeDivColor() {
+    if (currentMode === 'random-colors') {
+        return `rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`;
+    } else if (currentMode === 'custom-color') {
+        return customColor;
+    } else if (currentMode === 'eraser') {
+        return 'white';
     }
+}
+
+function changeOpacity(item) {
+    opacity = Number(item.style.opacity) - 0.1;
+    return`rgba(0, 0, 0, ${opacity})`;
 }
 
 // EVENTS LISTENERS 🌷
 
-createBtn.addEventListener('click', checkIfValid)
+createBtn.addEventListener('click', checkIfValid);
+
 mode.addEventListener('click', (e) => {
-    if (e.target.id === 'random-colors') {
+    if (e.target.id === 'clear-all') {
+        while (container.firstChild) {
+        container.removeChild(container.firstChild);
+        }
+        numSquares = 0;
+        opacity = 0.9;
+        currentMode = 'random-colors';
+        customColor = '';
 
-    } else if (e.target.id === 'custom-colors') {
+    } else if (e.target.id === 'custom-color') {
+        customColor = prompt('Write a color or paste a color code here:').toLowerCase();
+        currentMode = 'custom-color'
 
-    } else if (e.target.id === 'black-and-white') {
+    } else if (e.target.id === 'random-colors') {
+        currentMode = 'random-colors';
 
     } else if (e.target.id === 'eraser') {
-        
-    } else if (e.target.id === 'clear-all') {
-
+        currentMode = 'eraser';
     }
-})
+});
