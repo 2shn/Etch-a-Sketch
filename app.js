@@ -15,7 +15,6 @@ const container = document.querySelector('div.container');
 // GLOBAL VARIABLES🌷
 
 let numSquares = 0;
-let opacity = 0.9;
 
 let randomColor = () => {
     const colorCode = Math.floor(Math.random() * 256);
@@ -25,6 +24,7 @@ let randomColor = () => {
 let currentMode = 'random-colors'; //default
 let rows;
 let customColor;
+let currentOpacity;
 
 // GLOBAL FUNCTIONS 🌷
 
@@ -75,10 +75,10 @@ function createGrid() {
             row.appendChild(square);
             
             square.addEventListener('mouseover', () => {
+                opacity = Number(square.style.opacity);
+                opacity += 0.2;
+                square.style.opacity = opacity > 1 ? 1 : opacity; // Ensure opacity does not exceed 1
                 square.style.backgroundColor = changeDivColor();
-                if (currentMode === 'shade') {
-                    square.style.backgroundColor = changeOpacity();
-                }
             })
         }
         container.appendChild(row);
@@ -95,11 +95,6 @@ function changeDivColor() {
     }
 }
 
-function changeOpacity(item) {
-    opacity = Number(item.style.opacity) - 0.1;
-    return`rgba(0, 0, 0, ${opacity})`;
-}
-
 // EVENTS LISTENERS 🌷
 
 createBtn.addEventListener('click', checkIfValid);
@@ -110,7 +105,6 @@ mode.addEventListener('click', (e) => {
         container.removeChild(container.firstChild);
         }
         numSquares = 0;
-        opacity = 0.9;
         currentMode = 'random-colors';
         customColor = '';
 

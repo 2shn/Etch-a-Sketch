@@ -8,7 +8,7 @@
 body {
     display: flex;
     flex-direction: row;
-    background-color:rgb(255, 247, 230);
+    background-color:rgb(255, 238, 238);
 }
 
 .left {
@@ -102,11 +102,7 @@ ul > li {
     text-align: center;
     flex: 1;
     align-content: center;
-}
-
-li a {
-    text-decoration: none;
-    color: rgb(255, 255, 255);
+    color: white;
 }
 
 /* For JS 🌷*/
@@ -130,8 +126,9 @@ li a {
     max-width: 200px;
     aspect-ratio: 1;
     flex: 1 1 50px;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     margin: 1px;
+    opacity: 0.1;
 }
 
 /* Pseudo class */
