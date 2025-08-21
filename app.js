@@ -75,10 +75,15 @@ function createGrid() {
             row.appendChild(square);
             
             square.addEventListener('mouseover', () => {
-                opacity = Number(square.style.opacity);
-                opacity += 0.2;
-                square.style.opacity = opacity > 1 ? 1 : opacity;
-                square.style.backgroundColor = changeDivColor();
+                if (currentMode === 'eraser') {
+                    square.style.opacity = 0.2;
+                    square.style.backgroundColor = 'white';
+                } else {
+                    opacity = Number(square.style.opacity);
+                    opacity += 0.2;
+                    square.style.opacity = opacity > 1 ? 1 : opacity;
+                    square.style.backgroundColor = changeDivColor();
+                }
             })
         }
         container.appendChild(row);
