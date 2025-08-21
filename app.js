@@ -95,8 +95,6 @@ function changeDivColor() {
         return `rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`;
     } else if (currentMode === 'custom-color') {
         return customColor;
-    } else if (currentMode === 'eraser') {
-        return 'white';
     }
 }
 
