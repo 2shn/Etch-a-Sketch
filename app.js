@@ -77,7 +77,7 @@ function createGrid() {
             square.addEventListener('mouseover', () => {
                 opacity = Number(square.style.opacity);
                 opacity += 0.2;
-                square.style.opacity = opacity > 1 ? 1 : opacity; // Ensure opacity does not exceed 1
+                square.style.opacity = opacity > 1 ? 1 : opacity;
                 square.style.backgroundColor = changeDivColor();
             })
         }
